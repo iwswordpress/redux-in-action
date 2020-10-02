@@ -44,7 +44,7 @@ class TasksPage extends Component {
 
   renderTaskLists() {
     const { onStatusChange, tasks } = this.props;
-
+    // loop through allo statuses and create a d DIV LIST for each
     return TASK_STATUSES.map(status => {
       const statusTasks = tasks.filter(task => task.status === status);
       return (
