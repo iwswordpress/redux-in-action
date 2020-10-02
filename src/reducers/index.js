@@ -35,6 +35,7 @@ export default function tasks(state = { tasks: mockTasks }, action) {
 
   if (action.type === 'EDIT_TASK') {
     const { payload } = action;
+    console.log('REDUCER/EDIT_TASK', action.type, payload);
     return {
       tasks: state.tasks.map(task => {
         if (task.id === payload.id) {
@@ -48,5 +49,10 @@ export default function tasks(state = { tasks: mockTasks }, action) {
     };
   }
 
+  if (action.type === 'UPDATE_TASK') {
+    const { payload } = action;
+    console.log('REDUCER/UPDATE_TASK:', action.type, payload);
+    return state;
+  }
   return state;
 }

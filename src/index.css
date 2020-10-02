@@ -23,7 +23,6 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 #root {
@@ -114,7 +113,7 @@ hr {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  row-gap: 10px;
 }
 
 .task-list {

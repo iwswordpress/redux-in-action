@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TasksPage from './components/TasksPage';
-import { createTask, editTask } from './actions';
+import { createTask, editTask, updateTask } from './actions';
 
 class App extends Component {
   onCreateTask = ({ title, description }) => {
@@ -11,7 +11,9 @@ class App extends Component {
   onStatusChange = (id, status) => {
     this.props.dispatch(editTask(id, { status }));
   };
-
+  // ononUpdateChange = (id, status) => {
+  //   this.props.dispatch(updateTask(id, { status }));
+  // };
   render() {
     return (
       <div className='main-content'>

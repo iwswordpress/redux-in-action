@@ -11,7 +11,7 @@ export function createTask({ title, description }) {
       title,
       description,
       status: 'Unstarted'
-    },
+    }
   };
 }
 
@@ -20,7 +20,17 @@ export function editTask(id, params = {}) {
     type: 'EDIT_TASK',
     payload: {
       id,
-      params,
-    },
+      params
+    }
+  };
+}
+
+export function updateTask(id, params = {}) {
+  console.log('actions/updateTask', id);
+  return {
+    type: 'UPDATE_TASK',
+    payload: {
+      id
+    }
   };
 }
