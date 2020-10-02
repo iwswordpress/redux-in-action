@@ -9,7 +9,7 @@ class TasksPage extends Component {
     this.state = {
       showNewCardForm: false,
       title: '',
-      description: '',
+      description: ''
     };
   }
 
@@ -25,7 +25,7 @@ class TasksPage extends Component {
     this.setState({
       showNewCardForm: false,
       title: '',
-      description: '',
+      description: ''
     });
   }
 
@@ -33,7 +33,7 @@ class TasksPage extends Component {
     e.preventDefault();
     this.props.onCreateTask({
       title: this.state.title,
-      description: this.state.description,
+      description: this.state.description
     });
     this.resetForm();
   };
@@ -60,37 +60,36 @@ class TasksPage extends Component {
 
   render() {
     return (
-      <div className="tasks">
-        <div className="tasks-header">
-          <button className="button button-default" onClick={this.toggleForm}>
+      <div className='tasks'>
+        <div className='tasks-header'>
+          <button className='button button-default' onClick={this.toggleForm}>
             + New task
           </button>
         </div>
 
-        {this.state.showNewCardForm &&
-          <form className="new-task-form" onSubmit={this.onCreateTask}>
+        {this.state.showNewCardForm && (
+          <form className='new-task-form' onSubmit={this.onCreateTask}>
             <input
-              className="full-width-input"
+              className='full-width-input'
               onChange={this.onTitleChange}
               value={this.state.title}
-              type="text"
-              placeholder="title"
+              type='text'
+              placeholder='title'
             />
             <input
-              className="full-width-input"
+              className='full-width-input'
               onChange={this.onDescriptionChange}
               value={this.state.description}
-              type="text"
-              placeholder="description"
+              type='text'
+              placeholder='description'
             />
-            <button className="button" type="submit">
+            <button className='button' type='submit'>
               Save
             </button>
-          </form>}
+          </form>
+        )}
 
-        <div className="task-lists">
-          {this.renderTaskLists()}
-        </div>
+        <div className='task-lists'>{this.renderTaskLists()}</div>
       </div>
     );
   }

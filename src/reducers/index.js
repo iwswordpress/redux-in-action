@@ -1,5 +1,4 @@
 import { uniqueId } from '../actions';
-
 const mockTasks = [
   {
     id: uniqueId(),
@@ -11,6 +10,18 @@ const mockTasks = [
     id: uniqueId(),
     title: 'Peace on Earth',
     description: 'No big deal.',
+    status: 'In Progress'
+  },
+  {
+    id: uniqueId(),
+    title: 'Next job',
+    description: 'Ready...',
+    status: 'Completed'
+  },
+  {
+    id: uniqueId(),
+    title: 'Painting',
+    description: 'Do living room',
     status: 'In Progress'
   }
 ];
