@@ -71,5 +71,25 @@ export default function tasks(state = { tasks: mockTasks }, action) {
       })
     };
   }
+  if (action.type === 'UPDATE_EDIT_TASK') {
+    const { payload } = action;
+    console.log(payload);
+    console.log('REDUCER/UPDATE_TASK:', action.type, payload);
+    return {
+      tasks: state.tasks.map(task => {
+        if (task.id === payload.id) {
+          console.log(`UPDATE_EDIT_TASK: TASK[${payload.id}]`);
+
+          return {
+            ...task,
+            title: payload.params.title,
+            description: payload.params.description
+          };
+        }
+
+        return task;
+      })
+    };
+  }
   return state;
 }

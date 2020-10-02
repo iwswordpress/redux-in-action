@@ -12,8 +12,10 @@ class App extends Component {
     this.props.dispatch(editTask(id, { status }));
   };
 
-  onUpdateChange = (id, status) => {
-    this.props.dispatch(updateTask(id, { status }));
+  onUpdateChange = (id, title, description, status) => {
+    description = '!! ' + description;
+    title = '!! ' + title;
+    this.props.dispatch(updateTask(id, { status, description, title }));
   };
   render() {
     return (

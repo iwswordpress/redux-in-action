@@ -35,3 +35,14 @@ export function updateTask(id, params = {}) {
     }
   };
 }
+
+export function updateEditTask(id, params = {}) {
+  console.log('actions/updateEditTask', id);
+  return {
+    type: 'UPDATE_EDIT_TASK',
+    payload: {
+      id,
+      params
+    }
+  };
+}
