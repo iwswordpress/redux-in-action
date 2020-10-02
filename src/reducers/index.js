@@ -58,7 +58,13 @@ export default function tasks(state = { tasks: mockTasks }, action) {
           console.log(`Updating TASK[${payload.id}]`);
           //console.log(task, payload.params);
           // return Object.assign({}, task, payload.params);
-          return { ...task, status: 'In Progress' };
+          const updatedTitle = 'UPDATED ' + payload.params.title;
+          return {
+            ...task,
+            status: 'Completed',
+            title: updatedTitle,
+            description: 'UPDATED ' + payload.params.description
+          };
         }
 
         return task;

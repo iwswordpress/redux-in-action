@@ -43,7 +43,7 @@ class TasksPage extends Component {
   };
 
   renderTaskLists() {
-    const { onStatusChange, tasks } = this.props;
+    const { onStatusChange, onUpdateChange, tasks } = this.props;
 
     return TASK_STATUSES.map(status => {
       const statusTasks = tasks.filter(task => task.status === status);
@@ -53,6 +53,7 @@ class TasksPage extends Component {
           status={status}
           tasks={statusTasks}
           onStatusChange={onStatusChange}
+          onUpdateChange={onUpdateChange}
         />
       );
     });

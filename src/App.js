@@ -12,6 +12,9 @@ class App extends Component {
     this.props.dispatch(editTask(id, { status }));
   };
 
+  onUpdateChange = (id, status) => {
+    this.props.dispatch(updateTask(id, { status }));
+  };
   render() {
     return (
       <div className='main-content'>
@@ -19,6 +22,7 @@ class App extends Component {
           tasks={this.props.tasks}
           onCreateTask={this.onCreateTask}
           onStatusChange={this.onStatusChange}
+          onUpdateChange={this.onUpdateChange}
         />
       </div>
     );
