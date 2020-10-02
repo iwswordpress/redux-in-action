@@ -7,7 +7,7 @@ class TasksPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showNewCardForm: true,
+      showNewCardForm: false,
       title: '',
       description: ''
     };
