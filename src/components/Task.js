@@ -36,17 +36,7 @@ const Task = props => {
   return (
     <div className='task'>
       <div className='task-header'>
-        <div>
-          {props.task.title}{' '}
-          <button
-            onClick={() => {
-              console.log('CLICK');
-              props.dispatch(updateTask(props.task.id, props.task));
-            }}
-          >
-            SET IN PROGRESS
-          </button>
-        </div>
+        <div>{props.task.title} </div>
         <select value={props.task.status} onChange={onStatusChange}>
           {TASK_STATUSES.map(status => (
             <option key={status} value={status}>
@@ -55,6 +45,7 @@ const Task = props => {
           ))}
         </select>
       </div>
+
       <hr />
       <div className='task-body'>
         {props.task.description}
