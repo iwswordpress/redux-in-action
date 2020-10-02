@@ -30,6 +30,7 @@ const Task = props => {
     console.log('EDIT clicked');
     const params = { title: title, description: description };
     props.dispatch(updateEditTask(props.task.id, params));
+    toggleForm();
   }
   let showAction = 'Edit';
   return (
@@ -60,7 +61,7 @@ const Task = props => {
         <br></br>
       </div>
       <div className='task-body'>
-        <button onClick={toggleForm}>{showAction}</button>
+        <button onClick={toggleForm}>{showForm ? 'Hide' : 'Edit'}</button>
       </div>
       {showForm && (
         <div style={{ padding: '5px' }}>
@@ -80,7 +81,7 @@ const Task = props => {
               placeholder='description'
             />
             <button className='button' type='submit'>
-              Edit
+              Update
             </button>
             {'   '}
             <button
