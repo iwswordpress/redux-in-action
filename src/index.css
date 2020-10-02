@@ -35,6 +35,8 @@ input {
   border-radius: 3px;
   padding: 15px;
   box-sizing: border-box;
+  font-size: inherit;
+  color: green;
 }
 input::placeholder {
   font-style: italic;

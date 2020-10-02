@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { updateTask, updateEditTask } from '../actions/index';
+import { updateEditTask } from '../actions/index';
 import { TASK_STATUSES } from '../constants';
 
 const Task = props => {
@@ -37,13 +37,6 @@ const Task = props => {
     <div className='task'>
       <div className='task-header'>
         <div>{props.task.title} </div>
-        <select value={props.task.status} onChange={onStatusChange}>
-          {TASK_STATUSES.map(status => (
-            <option key={status} value={status}>
-              {status}
-            </option>
-          ))}
-        </select>
       </div>
 
       <hr />
@@ -52,7 +45,14 @@ const Task = props => {
         <br></br>
       </div>
       <div className='task-body'>
-        <button onClick={toggleForm}>{showForm ? 'Hide' : 'Edit'}</button>
+        <button onClick={toggleForm}>{showForm ? 'Hide' : 'Edit'}</button>{' '}
+        <select value={props.task.status} onChange={onStatusChange}>
+          {TASK_STATUSES.map(status => (
+            <option key={status} value={status}>
+              {status}
+            </option>
+          ))}
+        </select>
       </div>
       {showForm && (
         <div style={{ padding: '5px' }}>
