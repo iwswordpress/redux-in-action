@@ -107,8 +107,8 @@ hr {
 }
 
 .task-body {
-  padding: 10px 20px;
-  min-height: 60px;
+  padding: 5px 20px;
+  min-height: 20px;
 }
 
 .task-lists {

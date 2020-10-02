@@ -40,10 +40,7 @@ const Task = props => {
       </div>
 
       <hr />
-      <div className='task-body'>
-        {props.task.description}
-        <br></br>
-      </div>
+      <div className='task-body'>{props.task.description}</div>
       <div className='task-body'>
         <button onClick={toggleForm}>{showForm ? 'Hide' : 'Edit'}</button>{' '}
         <select value={props.task.status} onChange={onStatusChange}>
