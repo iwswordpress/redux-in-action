@@ -37,7 +37,10 @@ input {
   padding: 15px;
   box-sizing: border-box;
 }
-
+input::placeholder {
+  font-style: italic;
+  font-size: 20px;
+}
 .full-width-input {
   display: block;
   width: 100%;
@@ -50,7 +53,7 @@ hr {
 
 .button {
   padding: 10px;
-  background: #76dc76;
+  background: #2196f3;
   color: #fff;
   border: 1px solid transparent;
   border-radius: 6px;
@@ -59,8 +62,8 @@ hr {
 }
 
 .button-default {
-  background: #cacaca;
-  color: black;
+  background: #2196f3;
+  color: #fff;
 }
 
 /* layout */
