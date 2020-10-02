@@ -30,7 +30,8 @@ export function updateTask(id, params = {}) {
   return {
     type: 'UPDATE_TASK',
     payload: {
-      id
+      id,
+      params
     }
   };
 }

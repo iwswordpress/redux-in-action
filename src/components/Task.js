@@ -16,7 +16,7 @@ const Task = props => {
               props.dispatch(updateTask(props.task.id, props.task));
             }}
           >
-            EDIT
+            SET IN PROGRESS
           </button>
         </div>
         <select value={props.task.status} onChange={onStatusChange}>

@@ -11,9 +11,7 @@ class App extends Component {
   onStatusChange = (id, status) => {
     this.props.dispatch(editTask(id, { status }));
   };
-  // ononUpdateChange = (id, status) => {
-  //   this.props.dispatch(updateTask(id, { status }));
-  // };
+
   render() {
     return (
       <div className='main-content'>

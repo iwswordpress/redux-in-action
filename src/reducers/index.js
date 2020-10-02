@@ -52,7 +52,18 @@ export default function tasks(state = { tasks: mockTasks }, action) {
   if (action.type === 'UPDATE_TASK') {
     const { payload } = action;
     console.log('REDUCER/UPDATE_TASK:', action.type, payload);
-    return state;
+    return {
+      tasks: state.tasks.map(task => {
+        if (task.id === payload.id) {
+          console.log(`Updating TASK[${payload.id}]`);
+          //console.log(task, payload.params);
+          // return Object.assign({}, task, payload.params);
+          return { ...task, status: 'In Progress' };
+        }
+
+        return task;
+      })
+    };
   }
   return state;
 }
