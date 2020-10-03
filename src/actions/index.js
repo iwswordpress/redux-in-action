@@ -4,8 +4,8 @@ function fetchTasksSucceeded(tasks) {
   return {
     type: 'FETCH_TASKS_SUCCEEDED',
     payload: {
-      tasks,
-    },
+      tasks
+    }
   };
 }
 
@@ -13,18 +13,18 @@ function fetchTasksFailed(error) {
   return {
     type: 'FETCH_TASKS_FAILED',
     payload: {
-      error,
-    },
+      error
+    }
   };
 }
 
 function fetchTasksStarted() {
   return {
-    type: 'FETCH_TASKS_STARTED',
+    type: 'FETCH_TASKS_STARTED'
   };
 }
 
-export function fetchTasks() {
+export function fetchTasksActions() {
   return dispatch => {
     dispatch(fetchTasksStarted());
 
@@ -43,8 +43,8 @@ function createTaskSucceeded(task) {
   return {
     type: 'CREATE_TASK_SUCCEEDED',
     payload: {
-      task,
-    },
+      task
+    }
   };
 }
 
@@ -60,8 +60,8 @@ function editTaskSucceeded(task) {
   return {
     type: 'EDIT_TASK_SUCCEEDED',
     payload: {
-      task,
-    },
+      task
+    }
   };
 }
 

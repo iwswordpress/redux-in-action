@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TaskList from './TaskList';
-
+import Loading from './Loading';
 import { TASK_STATUSES } from '../constants';
 
 class TasksPage extends Component {
@@ -9,7 +9,7 @@ class TasksPage extends Component {
     this.state = {
       showNewCardForm: false,
       title: '',
-      description: '',
+      description: ''
     };
   }
 
@@ -25,7 +25,7 @@ class TasksPage extends Component {
     this.setState({
       showNewCardForm: false,
       title: '',
-      description: '',
+      description: ''
     });
   }
 
@@ -33,7 +33,7 @@ class TasksPage extends Component {
     e.preventDefault();
     this.props.onCreateTask({
       title: this.state.title,
-      description: this.state.description,
+      description: this.state.description
     });
     this.resetForm();
   };
@@ -45,40 +45,49 @@ class TasksPage extends Component {
   render() {
     if (this.props.isLoading) {
       return (
-        <div className="tasks-loading">
-          Loading...
+        <div
+          style={{
+            marginTop: '200px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Loading />
         </div>
       );
     }
 
     return (
-      <div className="tasks">
-        <div className="tasks-header">
-          <button className="button button-default" onClick={this.toggleForm}>
+      <div className='tasks'>
+        <div className='tasks-header'>
+          {' '}
+          <button className='button button-default' onClick={this.toggleForm}>
             + New task
           </button>
         </div>
-        {this.state.showNewCardForm &&
-          <form className="new-task-form" onSubmit={this.onCreateTask}>
+        {this.state.showNewCardForm && (
+          <form className='new-task-form' onSubmit={this.onCreateTask}>
             <input
-              className="full-width-input"
+              className='full-width-input'
               onChange={this.onTitleChange}
               value={this.state.title}
-              type="text"
-              placeholder="title"
+              type='text'
+              placeholder='title'
             />
             <input
-              className="full-width-input"
+              className='full-width-input'
               onChange={this.onDescriptionChange}
               value={this.state.description}
-              type="text"
-              placeholder="description"
+              type='text'
+              placeholder='description'
             />
-            <button className="button" type="submit">
+            <button className='button' type='submit'>
               Save
             </button>
-          </form>}
-        <div className="task-lists">
+          </form>
+        )}
+        <div className='task-lists'>
           {TASK_STATUSES.map(status => {
             const statusTasks = this.props.tasks.filter(
               task => task.status === status

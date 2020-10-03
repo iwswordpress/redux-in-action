@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TasksPage from './components/TasksPage';
 import FlashMessage from './components/FlashMessage';
-import { createTask, editTask, fetchTasks } from './actions';
+import { createTask, editTask, fetchTasksActions } from './actions';
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchTasks());
+    this.props.dispatch(fetchTasksActions());
   }
 
   onCreateTask = ({ title, description }) => {
@@ -19,9 +19,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className='container'>
         {this.props.error && <FlashMessage message={this.props.error} />}
-        <div className="main-content">
+        <div className='main-content'>
           <TasksPage
             tasks={this.props.tasks}
             onCreateTask={this.onCreateTask}
