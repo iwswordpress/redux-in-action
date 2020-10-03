@@ -12,9 +12,9 @@ const Task = props => {
   function toggleForm() {
     console.log('TOGGLE');
     setShowForm(!showForm);
-    if (showAction == 'Edit') {
+    if (showAction === 'Edit') {
       showAction = 'Hide';
-    } else if (showAction == 'hide') {
+    } else if (showAction === 'hide') {
       showAction = 'Edit';
     }
   }
