@@ -7,14 +7,6 @@ const TasksPage = props => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [showNewCardForm, setShowNewCardForm] = useState(false);
-  const onTitleChange = e => {
-    console.log(e.target.value);
-    setTitle({ title: e.target.value });
-  };
-
-  const onDescriptionChange = e => {
-    setDescription({ description: e.target.value });
-  };
 
   const resetForm = () => {
     setTitle('');
