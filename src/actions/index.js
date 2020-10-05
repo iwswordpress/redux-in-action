@@ -66,6 +66,7 @@ function editTaskSucceeded(task) {
 }
 
 export function editTask(id, params = {}) {
+  console.log(params.status);
   return (dispatch, getState) => {
     const task = getTaskById(getState().tasks.tasks, id);
     const updatedTask = Object.assign({}, task, params);
