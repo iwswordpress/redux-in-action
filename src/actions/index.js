@@ -33,14 +33,6 @@ export function fetchTasksActions() {
       .then(data => {
         console.log(data);
         dispatch(fetchTasksSucceeded(data));
-        dispatch(
-          createTaskSucceeded({
-            id: 1222,
-            title: 'New Task in actions',
-            description: 'TEST',
-            status: 'NOT_STARTED'
-          })
-        );
       })
       .catch(error => dispatch(fetchTasksFailed(error)));
   };
@@ -55,11 +47,28 @@ function createTaskSucceeded(task) {
   };
 }
 
-export function createTask({ title, description, status = 'NOT_STARTED' }) {
-  return dispatch => {
-    api.createTask({ title, description, status }).then(resp => {
-      dispatch(createTaskSucceeded(resp.data));
+export function createTask({ title, description }) {
+  const formData = new FormData();
+  formData.append('title', title);
+  formData.append('description', description);
+
+  let apiUrl = 'https://49plus.co.uk/wp-social/wp-json/social/v2/add-task';
+  console.log('url: ' + apiUrl);
+  // USE FETCH API
+  fetch(apiUrl, {
+    method: 'POST', // set FETCH type GET/POST, if none specified GET is default
+    body: formData // append form data
+  })
+    .then(function (response) {
+      console.log(response);
+      return response.json(); // convert stream response tot text
+    })
+    .then(function (data) {
+      console.log(data);
     });
+
+  return dispatch => {
+    dispatch(createTaskSucceeded({ title, description }));
   };
 }
 
