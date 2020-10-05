@@ -8,6 +8,7 @@ const TasksPage = props => {
   const [description, setDescription] = useState('');
   const [showNewCardForm, setShowNewCardForm] = useState(false);
   const onTitleChange = e => {
+    console.log(e.target.value);
     setTitle({ title: e.target.value });
   };
 
@@ -48,15 +49,17 @@ const TasksPage = props => {
       {showNewCardForm && (
         <form className='new-task-form' onSubmit={onCreateTask}>
           <input
+            name='title'
             className='full-width-input'
-            onChange={e => setTitle(e.event.target)}
+            onChange={e => setTitle(e.target.value)}
             value={title}
             type='text'
             placeholder='title'
           />
           <input
+            name='description'
             className='full-width-input'
-            onChange={e => setDescription(e.event.target)}
+            onChange={e => setDescription(e.target.value)}
             value={description}
             type='text'
             placeholder='description'
