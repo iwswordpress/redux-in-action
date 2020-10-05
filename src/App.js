@@ -20,6 +20,10 @@ class App extends Component {
   render() {
     return (
       <div className='main-content'>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <h1>CH04CW</h1>
+        </div>
+
         <TasksPage
           tasks={this.props.tasks}
           onCreateTask={this.onCreateTask}
