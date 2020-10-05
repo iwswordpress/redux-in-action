@@ -8,6 +8,7 @@ const App = props => {
   useEffect(() => {
     props.dispatch(fetchTasksActions());
   }, []);
+
   const onCreateTask = ({ title, description }) => {
     props.dispatch(createTask({ title, description }));
   };
@@ -16,6 +17,9 @@ const App = props => {
     props.dispatch(editTask(id, { status }));
   };
 
+  const reload = () => {
+    props.dispatch(fetchTasksActions());
+  };
   return (
     <div className='container'>
       {props.error && <FlashMessage message={props.error} />}
@@ -25,6 +29,7 @@ const App = props => {
           onCreateTask={onCreateTask}
           onStatusChange={onStatusChange}
           isLoading={props.isLoading}
+          reload={reload}
         />
       </div>
     </div>

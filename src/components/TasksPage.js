@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import TaskList from './TaskList';
 import Loading from './Loading';
+import { fetchTasksActions } from '../actions';
 import { TASK_STATUSES } from '../constants';
 
 const TasksPage = props => {
   console.log(props);
-  // useEffect(() => {}, [props.tasks]);
+  useEffect(() => {}, [props.tasks]);
   const [showNewCardForm, setShowNewCardForm] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -23,6 +24,7 @@ const TasksPage = props => {
       description: description
     });
     resetForm();
+    props.reload();
   };
 
   const toggleForm = () => {
