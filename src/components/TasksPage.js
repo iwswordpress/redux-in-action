@@ -5,7 +5,7 @@ import { fetchTasksActions } from '../actions';
 import { TASK_STATUSES } from '../constants';
 
 const TasksPage = props => {
-  console.log(props);
+  // console.log(props);
   useEffect(() => {}, [props.tasks]);
   const [showNewCardForm, setShowNewCardForm] = useState(false);
   const [title, setTitle] = useState('');

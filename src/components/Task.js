@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { TASK_STATUSES } from '../constants';
 
 const Task = props => {
+  useEffect(() => {}, [props.task]);
   return (
     <div className='task'>
       <div className='task-header'>

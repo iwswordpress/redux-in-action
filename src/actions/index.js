@@ -31,7 +31,7 @@ export function fetchTasksActions() {
     fetch('https://49plus.co.uk/wp-social/wp-json/social/v2/get-tasks')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        //console.log(data);
         dispatch(fetchTasksSucceeded(data));
       })
       .catch(error => dispatch(fetchTasksFailed(error)));
@@ -82,13 +82,28 @@ function editTaskSucceeded(task) {
 }
 
 export function editTask(id, params = {}) {
-  console.log(params.status);
+  console.log('EDIT TASK', id, params);
   return (dispatch, getState) => {
     const task = getTaskById(getState().tasks.tasks, id);
-    const updatedTask = Object.assign({}, task, params);
-    api.editTask(id, updatedTask).then(resp => {
-      dispatch(editTaskSucceeded(resp.data));
-    });
+
+    const formData = new FormData();
+    formData.append('status', 'COMPLETED');
+    formData.append('id', id);
+
+    let apiUrl = 'https://49plus.co.uk/wp-social/wp-json/social/v2/edit-task';
+    console.log('url: ' + apiUrl);
+    // USE FETCH API
+    fetch(apiUrl, {
+      method: 'POST', // set FETCH type GET/POST, if none specified GET is default
+      body: formData // append form data
+    })
+      .then(function (response) {
+        console.log(response);
+        return response.json(); // convert stream response tot text
+      })
+      .then(function (data) {
+        console.log(data);
+      });
   };
 }
 
