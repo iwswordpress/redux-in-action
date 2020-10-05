@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import TaskList from './TaskList';
 
 import { TASK_STATUSES } from '../constants';
 
 const TasksPage = props => {
-  const [title, setTitle] = useEffect('');
-  const [description, setDescription] = useEffect('');
-  const [showNewCardForm, setShowNewCardForm] = useEffect(false);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [showNewCardForm, setShowNewCardForm] = useState(false);
   const onTitleChange = e => {
     setTitle({ title: e.target.value });
   };
@@ -49,14 +49,14 @@ const TasksPage = props => {
         <form className='new-task-form' onSubmit={onCreateTask}>
           <input
             className='full-width-input'
-            onChange={onTitleChange}
+            onChange={e => setTitle(e.event.target)}
             value={title}
             type='text'
             placeholder='title'
           />
           <input
             className='full-width-input'
-            onChange={onDescriptionChange}
+            onChange={e => setDescription(e.event.target)}
             value={description}
             type='text'
             placeholder='description'
