@@ -1,27 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { TASK_STATUSES } from '../constants';
 
 const Task = props => {
-  useEffect(() => {}, [props.task]);
   return (
-    <div className='task'>
-      <div className='task-header'>
+    <div className="task">
+      <div className="task-header">
         <div>{props.task.title}</div>
-        <select value={props.task.status} onChange={onStatusChangeTask}>
+        <select value={props.task.status} onChange={onStatusChange}>
           {TASK_STATUSES.map(status => (
-            <option key={status} value={status}>
-              {status}
-            </option>
+            <option key={status} value={status}>{status}</option>
           ))}
         </select>
       </div>
       <hr />
-      <div className='task-body'>{props.task.description}</div>
+      <div className="task-body">{props.task.description}</div>
     </div>
   );
 
-  function onStatusChangeTask(e) {
+  function onStatusChange(e) {
     props.onStatusChange(props.task.id, e.target.value);
   }
 };

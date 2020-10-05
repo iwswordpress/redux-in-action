@@ -1,1 +1,1 @@
-export const TASK_STATUSES = ['NOT_STARTED', 'IN_PROGRESS', 'COMPLETED'];
+export const TASK_STATUSES = ['Unstarted', 'In Progress', 'Completed'];

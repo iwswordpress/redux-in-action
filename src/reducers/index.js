@@ -1,35 +1,35 @@
 const initialState = {
   tasks: [],
   isLoading: false,
-  error: null
+  error: null,
 };
 
-export function tasksReducer(state = initialState, action) {
+export default function tasks(state = initialState, action) {
   switch (action.type) {
     case 'FETCH_TASKS_STARTED': {
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     }
     case 'FETCH_TASKS_SUCCEEDED': {
       return {
         ...state,
         tasks: action.payload.tasks,
-        isLoading: false
+        isLoading: false,
       };
     }
     case 'FETCH_TASKS_FAILED': {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.error,
       };
     }
     case 'CREATE_TASK_SUCCEEDED': {
       return {
         ...state,
-        tasks: state.tasks.concat(action.payload.task)
+        tasks: state.tasks.concat(action.payload.task),
       };
     }
     case 'EDIT_TASK_SUCCEEDED': {
@@ -43,7 +43,7 @@ export function tasksReducer(state = initialState, action) {
       });
       return {
         ...state,
-        tasks: nextTasks
+        tasks: nextTasks,
       };
     }
     default: {
