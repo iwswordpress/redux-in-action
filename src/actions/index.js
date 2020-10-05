@@ -28,14 +28,21 @@ export function fetchTasksActions() {
   return dispatch => {
     dispatch(fetchTasksStarted());
 
-    api
-      .fetchTasks()
-      .then(resp => {
-        dispatch(fetchTasksSucceeded(resp.data));
+    fetch('https://49plus.co.uk/wp-social/wp-json/social/v2/get-tasks')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        dispatch(fetchTasksSucceeded(data));
+        dispatch(
+          createTaskSucceeded({
+            id: 1222,
+            title: 'New Task in actions',
+            description: 'TEST',
+            status: 'NOT_STARTED'
+          })
+        );
       })
-      .catch(err => {
-        dispatch(fetchTasksFailed(err.message));
-      });
+      .catch(error => dispatch(fetchTasksFailed(error)));
   };
 }
 
@@ -48,7 +55,7 @@ function createTaskSucceeded(task) {
   };
 }
 
-export function createTask({ title, description, status = 'Unstarted' }) {
+export function createTask({ title, description, status = 'NOT_STARTED' }) {
   return dispatch => {
     api.createTask({ title, description, status }).then(resp => {
       dispatch(createTaskSucceeded(resp.data));
